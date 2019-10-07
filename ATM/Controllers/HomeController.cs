@@ -8,11 +8,18 @@ namespace ATM.Controllers
 {
     public class HomeController : Controller
     {
+        //GET home/Index
         public ActionResult Index()
         {
             return View();
         }
 
+        public ActionResult Foo()
+        {
+            return View("About");
+        }
+
+        //GET home/About
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
