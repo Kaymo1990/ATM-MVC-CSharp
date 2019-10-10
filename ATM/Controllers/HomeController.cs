@@ -33,5 +33,32 @@ namespace ATM.Controllers
 
             return View();
         }
+
+        public ActionResult Serial(string letterCase)
+        {
+            var serial = "ASPNETMVCATM1";
+            if (letterCase == "lower")
+            {
+                return Content(serial.ToLower());
+            }
+
+            else
+            {
+                return Content(serial);
+            }
+        }
+
+        public ActionResult AgeCalc(string age)
+        {
+            if (Convert.ToInt32(age) < 18)
+            {
+                return Content("You are too young to access this.");
+            }
+
+            else
+            {
+                return Json(new { name = "Kay", myage = age }, JsonRequestBehavior.AllowGet );
+            }
+        }
     }
 }

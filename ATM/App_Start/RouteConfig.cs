@@ -12,17 +12,23 @@ namespace ATM
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+               name: "Age",
+               url: "Home/AgeCalc/",
+               defaults: new { controller = "Home", action = "AgeCalc" }
+               );
 
             routes.MapRoute(
                 name: "Serial number",
                 url: "serial/{letterCase}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Serial", letterCase = "upper" }
             );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Serial", letterCase = "upper" }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
 
         }
     }
