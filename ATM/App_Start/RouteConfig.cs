@@ -11,12 +11,13 @@ namespace ATM
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            /*
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                name: "Age",
                url: "Home/AgeCalc/",
                defaults: new { controller = "Home", action = "AgeCalc" }
-               );
+               ); */
 
             routes.MapRoute(
                 name: "Serial number",

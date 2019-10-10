@@ -29,8 +29,15 @@ namespace ATM.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Send your details:";
 
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(string firstname, string age)
+        {
+            ViewBag.Message = $"Details received! Thanks {firstname}!";
             return View();
         }
 
@@ -47,7 +54,7 @@ namespace ATM.Controllers
                 return Content(serial);
             }
         }
-
+        [Route("Home/AgeCalc/")]
         public ActionResult AgeCalc(string age)
         {
             if (Convert.ToInt32(age) < 18)
